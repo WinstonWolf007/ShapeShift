@@ -150,7 +150,7 @@ class MainActivity : AppCompatActivity() {
 
         if (today_plan_settings.length() != 0) {
             textView.setOnClickListener {
-                val intent = Intent(this, Workout::class.java)
+                val intent = Intent(this, WorkoutActivity::class.java)
                 intent.putExtra("src", this::class.java.name)
                 intent.putExtra("plan", today_plan_settings.toString())
                 startActivity(intent)

@@ -61,7 +61,7 @@ class AvailableWorkoutActivity : AppCompatActivity() {
 
                 // Set click listener for each workout layout
                 workoutLayouts[index].setOnClickListener {
-                    val intent = Intent(this, Workout::class.java)
+                    val intent = Intent(this, WorkoutActivity::class.java)
                     intent.putExtra("src", this::class.java.name)
                     intent.putExtra("plan", weeklyPlanList[index].toString())
                     startActivity(intent)

@@ -30,7 +30,7 @@
             android:theme="@style/AppTheme"
             android:exported="true" />
         <activity
-            android:name=".Workout"
+            android:name=".WorkoutActivity"
             android:theme="@style/AppTheme"
             android:exported="true" />
         <activity

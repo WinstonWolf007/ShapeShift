@@ -2,22 +2,17 @@ package com.example.shapeshift
 
 import android.content.Context
 import android.content.Intent
-import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
-import android.os.VibrationAttributes
 import android.os.Vibrator
-import android.util.Log
 import android.view.ViewGroup
 import android.widget.FrameLayout
 import android.widget.RelativeLayout
 import android.widget.TextView
-import androidx.core.view.marginStart
-import androidx.core.view.marginTop
 import org.json.JSONObject
 
-class Workout : AppCompatActivity() {
+class WorkoutActivity : AppCompatActivity() {
     lateinit var source: String
     lateinit var workout_plan: JSONObject
     lateinit var workout_struct: MutableList<JSONObject>
@@ -42,12 +37,12 @@ class Workout : AppCompatActivity() {
             if (secondsElapsed >= 0) {
                 val minutes = (secondsElapsed % 3600) / 60
                 val seconds = secondsElapsed % 60
-                var text: String = "$minutes:"
+                var text = "$minutes:"
 
-                if (seconds < 10) {
-                    text += "0$seconds"
+                text += if (seconds < 10) {
+                    "0$seconds"
                 } else {
-                    text += "$seconds"
+                    "$seconds"
                 }
                 stopwatchTextView.text = text
             }
@@ -57,7 +52,7 @@ class Workout : AppCompatActivity() {
         }
     }
 
-    private fun vibrate(time:Long) {
+    private fun vibrate(time:Long=50) {
         val vibrator = getSystemService(Context.VIBRATOR_SERVICE) as Vibrator
         if (vibrator.hasVibrator()) {
             vibrator.vibrate(time)
@@ -126,7 +121,7 @@ class Workout : AppCompatActivity() {
         val pauseBtn = findViewById<FrameLayout>(R.id.frameLayout3)
 
         rightCursor.setOnClickListener {
-            this.vibrate(50)
+            this.vibrate()
             if (workout_cursor+1 < workout_struct.size) {
                 workout_cursor++
                 this.START_WORKOUT_IDX()
@@ -136,7 +131,7 @@ class Workout : AppCompatActivity() {
         }
 
         leftCursor.setOnClickListener {
-            this.vibrate(50)
+            this.vibrate()
             if (workout_cursor-1 >= 0) {
                 workout_cursor--
                 this.START_WORKOUT_IDX()
@@ -155,7 +150,7 @@ class Workout : AppCompatActivity() {
 
         val exerciseName = exercise.getString("name")
 
-        var text: String
+        val text: String
 
         if (exerciseName == "BREAK") {
             secondsElapsed = exercise.getInt("time")
@@ -180,7 +175,7 @@ class Workout : AppCompatActivity() {
         var squareY = 0
 
         for (stepIDX in 0 until workoutList.length()) {
-            val exercise : JSONObject = JSONObject(workoutList[stepIDX].toString())
+            val exercise = JSONObject(workoutList[stepIDX].toString())
 
             for (series in 0 until exercise.getString("series").toInt()) {
                 val breaks = JSONObject()
