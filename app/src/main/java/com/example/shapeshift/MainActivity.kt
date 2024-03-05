@@ -1,42 +1,18 @@
 package com.example.shapeshift
 
-import android.app.Application
 import android.content.Intent
 import android.graphics.Typeface
 import android.os.Build
 import android.os.Bundle
-import android.util.Log
 import android.view.Gravity
-import com.google.android.material.snackbar.Snackbar
 import androidx.appcompat.app.AppCompatActivity
-import androidx.navigation.findNavController
-import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.navigateUp
-import androidx.navigation.ui.setupActionBarWithNavController
-import android.view.Menu
-import android.view.MenuItem
-import android.widget.Adapter
-import android.widget.ArrayAdapter
 import android.widget.FrameLayout
-import android.widget.GridLayout
-import android.widget.ListView
 import android.widget.RelativeLayout
 import android.widget.TextView
 import androidx.annotation.RequiresApi
-import androidx.core.text.isDigitsOnly
-import androidx.core.view.marginLeft
-import androidx.core.view.marginTop
+import androidx.core.content.ContextCompat
 import org.json.JSONArray
 import org.json.JSONObject
-import java.io.File
-import java.time.LocalDate
-import java.time.temporal.WeekFields
-import java.util.ArrayList
-import java.util.Calendar
-import java.util.Date
-import java.util.logging.Handler
-
-import com.example.shapeshift.GET_TODAY_DATE_CODE
 
 
 class MainActivity : AppCompatActivity() {
@@ -69,7 +45,7 @@ class MainActivity : AppCompatActivity() {
         val textView = findViewById<TextView>(R.id.edit_text)
 
         textView.setOnClickListener {
-            val intent = Intent(this, Edit::class.java)
+            val intent = Intent(this, SettingsActivity::class.java)
             intent.putExtra("src", this::class.java.name)
             startActivity(intent)
         }
@@ -134,7 +110,7 @@ class MainActivity : AppCompatActivity() {
 
                     textView.text = text
                     textView.textSize = 20F
-                    textView.setTextColor(resources.getColor(R.color.black))
+                    textView.setTextColor(ContextCompat.getColor(this, R.color.black))
                     layoutParams.topMargin = exerciseIDX * 150
                     textView.layoutParams = layoutParams
 
