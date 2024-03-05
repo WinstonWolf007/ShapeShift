@@ -1,0 +1,57 @@
+{
+  "username": "No name...",
+  "language": "english",
+  "theme": "light",
+
+  "plans": [
+    {
+      "time":  "Th",
+      "name":  "POWER PUSH",
+      "color": "#264653",
+      "workout": [
+        {"name": "Push-up", "series": 4,"rep": 12, "break": 120},
+        {"name": "Rowing", "series": 4,"rep": 10, "break": 90},
+        {"name": "Développé militaire", "series": 4,"rep": 10, "break": 120},
+        {"name": "Pull-up", "series": 3,"rep": 8, "break": 120},
+        {"name": "Épaule coté", "series": 3,"rep": 14, "break": 60}
+      ]
+    },
+
+    {
+      "time":  "Tu",
+      "name":  "LEGS OF STEEL",
+      "color": "#e76f51",
+      "workout": [
+        {"name": "Squat", "series": 4,"rep": 10, "break": 120},
+        {"name": "Fente alternées", "series": 3,"rep": 10, "break": 120},
+        {"name": "Mollets", "series": 3,"rep": 15, "break": 90},
+        {"name": "Planche Abdo 30s", "series": 3,"rep": 1, "break": 60}
+      ]
+    },
+
+    {
+      "time":  "Mo",
+      "name":  "THE HERCULE STRONG",
+      "color": "#2a9d8f",
+      "workout": [
+        {"name": "Push-up", "series": 4,"rep": 10, "break": 60},
+        {"name": "Biceps curl", "series": 3,"rep": 10, "break": 120},
+        {"name": "Triceps haut", "series": 3,"rep": 10, "break": 120},
+        {"name": "Épaule Devant", "series": 3,"rep": 12, "break": 120},
+        {"name": "Dips", "series": 3,"rep": 8, "break": 120}
+      ]
+    },
+
+    {
+      "time":  "Fr",
+      "name":  "LEGS FURY",
+      "color": "#e9c46a",
+      "workout": [
+        {"name": "Pistol Squat", "series": 3,"rep": 10, "break": 120},
+        {"name": "Squat lente", "series": 3,"rep": 5, "break": 60},
+        {"name": "Crunch Abdo", "series": 3,"rep": 40, "break": 120},
+        {"name": "Planche Abdo 30s", "series": 3,"rep": 1, "break": 30}
+      ]
+    }
+  ]
+}

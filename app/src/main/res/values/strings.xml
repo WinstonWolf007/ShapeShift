@@ -1,0 +1,20 @@
+<resources>
+    <string name="home_welcome">WELCOME</string>
+    <string name="home_subtitle_week">THIS WEEK</string>
+    <string name="home_subtitle_plan_today">TODAY PLAN</string>
+    <string name="home_edit">SETTINGS</string>
+    <string name="home_see_more_plan">SEE MORE PLANS</string>
+
+    <string name="title_activity_test">TestActivity</string>
+    <string name="title_activity_main2">MainActivity2</string>
+    <string name="app_name">SHAPE SHIFT</string>
+    <string name="workout_exit_text"><![CDATA[<— Exit —>]]></string>
+    <string name="language">LANGUAGE</string>
+    <string name="workout">WORKOUT</string>
+    <string name="exit">EXIT</string>
+    <string name="theme">THEME</string>
+    <string name="edit_workout_day">Edit workout day</string>
+    <string name="dark">dark</string>
+    <string name="english">English</string>
+    <!--    <string name="workout_exit_text">UPPER BODY</string>-->
+</resources>

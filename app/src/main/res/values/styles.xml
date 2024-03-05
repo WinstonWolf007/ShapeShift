@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/white</item>
+        <item name="colorAccent">@color/orange</item>
+        <item name="colorPrimaryDark">@color/black</item>
+    </style>
+    
+    <style name="AppThemeDark" parent="Theme.AppCompat">
+        <item name="colorPrimary">@color/black</item>
+        <item name="colorAccent">@color/orange</item>
+        <item name="colorPrimaryDark">@color/white</item>
+    </style>
+
+    <style name="home_see_more_button">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginBottom">28dp</item>
+        <item name="android:paddingTop">20dp</item>
+        <item name="android:fontFamily">@font/jb_light</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">@color/orange</item>
+        <item name="android:textSize">20sp</item>
+    </style>
+
+    <style name="plan_layout_title">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="fontFamily">@font/jb_bold</item>
+        <item name="android:paddingLeft">20dp</item>
+        <item name="android:layout_marginBottom">10dp</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">26sp</item>
+    </style>
+
+    <style name="home_today_plan_subtitle">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:orientation">horizontal</item>
+    </style>
+    <style name="home_welcome_title">
+        <item name="android:layout_width">@dimen/home_welcome_title_width</item>
+        <item name="android:layout_height">@dimen/home_welcome_title_height</item>
+    </style>
+
+    <style name="page_spacing_side">
+        <item name="android:layout_width">@dimen/home_spacing_side_width</item>
+        <item name="android:layout_height">match_parent</item>
+    </style>
+
+    <style name="home_subtitle">
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">@dimen/home_subtitle</item>
+        <item name="fontFamily">@font/jb_light</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="home_title">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_centerInParent">true</item>
+        <item name="android:layout_marginTop">15dp</item>
+        <item name="android:fontFamily">@font/jb_bold</item>
+        <item name="android:text">@string/home_welcome</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">@dimen/home_title</item>
+    </style>
+</resources>

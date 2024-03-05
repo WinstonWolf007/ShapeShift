@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="home_title">25sp</dimen>
+    <dimen name="home_subtitle">15sp</dimen>
+
+    <dimen name="home_spacing_side_width">20dp</dimen>
+
+    <dimen name="home_welcome_title_width">0dp</dimen>
+    <dimen name="home_welcome_title_height">90dp</dimen>
+</resources>

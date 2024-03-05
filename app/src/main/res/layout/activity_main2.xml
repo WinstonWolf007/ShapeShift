@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".MainActivity2">
+
+
+    <RelativeLayout
+        android:id="@+id/relativeLayoutStart"
+        android:layout_width="20dp"
+        android:layout_height="match_parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <RelativeLayout
+        android:id="@+id/relativeLayoutEnd"
+        android:layout_width="20dp"
+        android:layout_height="match_parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <RelativeLayout
+        android:id="@+id/close_button"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <RelativeLayout
+        android:id="@+id/manage_plan_close_btn"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:background="@mipmap/ic_close"
+        android:layout_marginEnd="10dp"
+        app:layout_constraintBottom_toBottomOf="@+id/close_button"
+        app:layout_constraintEnd_toEndOf="@+id/close_button"
+        app:layout_constraintTop_toTopOf="@+id/close_button" />
+
+    <FrameLayout
+        android:id="@+id/plan_frame_layout"
+        android:layout_width="0dp"
+        android:layout_height="100dp"
+        android:background="@drawable/home_plan_component"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/relativeLayoutEnd"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/relativeLayoutStart"
+        app:layout_constraintTop_toBottomOf="@+id/close_button"
+        app:layout_constraintVertical_bias="0.025" />
+
+    <FrameLayout
+        android:id="@+id/frameLayout6"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_margin="10dp"
+        android:background="@mipmap/ic_trash"
+        android:backgroundTint="@color/red"
+        app:layout_constraintEnd_toEndOf="@+id/plan_frame_layout"
+        app:layout_constraintTop_toTopOf="@+id/plan_frame_layout" />
+
+    <FrameLayout
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_margin="10dp"
+        android:background="@mipmap/ic_edit"
+        android:backgroundTint="@color/white"
+        app:layout_constraintEnd_toStartOf="@+id/frameLayout6"
+        app:layout_constraintTop_toTopOf="@+id/plan_frame_layout" />
+
+    <FrameLayout
+        android:id="@+id/plan_frame_layout2"
+        android:layout_width="0dp"
+        android:layout_height="100dp"
+        android:background="@drawable/home_plan_component"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/relativeLayoutEnd"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/relativeLayoutStart"
+        app:layout_constraintTop_toBottomOf="@+id/close_button"
+        app:layout_constraintVertical_bias="0.213" />
+
+    <FrameLayout
+        android:id="@+id/plan_frame_layout3"
+        android:layout_width="0dp"
+        android:layout_height="100dp"
+        android:background="@drawable/home_plan_component"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/relativeLayoutEnd"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/relativeLayoutStart"
+        app:layout_constraintTop_toBottomOf="@+id/close_button"
+        app:layout_constraintVertical_bias="0.404" />
+
+    <FrameLayout
+        android:id="@+id/plan_frame_layout4"
+        android:layout_width="0dp"
+        android:layout_height="100dp"
+        android:background="@drawable/home_plan_component"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/relativeLayoutEnd"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/relativeLayoutStart"
+        app:layout_constraintTop_toBottomOf="@+id/close_button"
+        app:layout_constraintVertical_bias="0.6" />
+
+    <FrameLayout
+        android:id="@+id/plan_frame_layout5"
+        android:layout_width="0dp"
+        android:layout_height="100dp"
+        android:background="@drawable/home_plan_component"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/relativeLayoutEnd"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/relativeLayoutStart"
+        app:layout_constraintTop_toBottomOf="@+id/close_button"
+        app:layout_constraintVertical_bias="0.79" />
+
+    <FrameLayout
+        android:id="@+id/plan_frame_layout6"
+        android:layout_width="0dp"
+        android:layout_height="100dp"
+        android:background="@drawable/home_plan_component"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/relativeLayoutEnd"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/relativeLayoutStart"
+        app:layout_constraintTop_toBottomOf="@+id/close_button"
+        app:layout_constraintVertical_bias="0.98" />
+
+    <TextView
+        style="@style/plan_layout_title"
+        android:id="@+id/plan_title0"
+        android:text="LEGS PUSH"
+        app:layout_constraintBottom_toBottomOf="@+id/plan_frame_layout"
+        app:layout_constraintStart_toStartOf="@+id/plan_frame_layout" />
+
+    <TextView
+        style="@style/plan_layout_title"
+        android:id="@+id/plan_title1"
+        android:text="ABS KILLER"
+        app:layout_constraintBottom_toBottomOf="@+id/plan_frame_layout2"
+        app:layout_constraintStart_toStartOf="@+id/plan_frame_layout2" />
+
+    <TextView
+        style="@style/plan_layout_title"
+        android:id="@+id/plan_title2"
+        android:text="ARM PULL"
+        app:layout_constraintBottom_toBottomOf="@+id/plan_frame_layout3"
+        app:layout_constraintStart_toStartOf="@+id/plan_frame_layout3" />
+
+    <TextView
+        style="@style/plan_layout_title"
+        android:id="@+id/plan_title3"
+        android:text="POWER LIFT"
+        app:layout_constraintBottom_toBottomOf="@+id/plan_frame_layout4"
+        app:layout_constraintStart_toStartOf="@+id/plan_frame_layout4" />
+
+    <TextView
+        style="@style/plan_layout_title"
+        android:id="@+id/plan_title4"
+        android:text="PECS PUSH"
+        app:layout_constraintBottom_toBottomOf="@+id/plan_frame_layout5"
+        app:layout_constraintStart_toStartOf="@+id/plan_frame_layout5" />
+
+    <TextView
+        style="@style/plan_layout_title"
+        android:id="@+id/plan_title5"
+        android:text="BACK PULL"
+        app:layout_constraintBottom_toBottomOf="@+id/plan_frame_layout6"
+        app:layout_constraintStart_toStartOf="@+id/plan_frame_layout6" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:fontFamily="@font/jb_bold"
+        android:text="EDIT"
+        android:textColor="@color/orange"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="@+id/close_button"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/close_button" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
