@@ -176,7 +176,7 @@ class MainActivity : AppCompatActivity() {
             textView.setTextColor(getColor(R.color.black))
             textView.setBackgroundResource(R.drawable.border_background)
 
-            if (dateCode[GET_TODAY_DATE_CODE(dateCode)[1].toInt()] == item) {
+            if (dateCode[getTodayDateCode(dateCode)[1].toInt()] == item) {
                 textView.setTextColor(getColor(R.color.white))
                 textView.setBackgroundResource(R.drawable.border_background_2)
             }
@@ -195,7 +195,7 @@ class MainActivity : AppCompatActivity() {
 
             for (i in 0 until listOfPlans.length()) {
                 val planSettings = JSONObject(listOfPlans[i].toString())
-                if (planSettings.getString("time") == GET_TODAY_DATE_CODE(dateCode)[0]) {
+                if (planSettings.getString("time") == getTodayDateCode(dateCode)[0]) {
                     today_plan_settings = planSettings
                     break
                 }

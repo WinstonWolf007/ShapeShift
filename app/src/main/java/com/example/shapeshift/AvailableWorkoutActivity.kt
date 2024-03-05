@@ -93,7 +93,7 @@ class AvailableWorkoutActivity : AppCompatActivity() {
             val plansArray = JSONArray(plans)
             val planList = mutableListOf<JSONObject>()
 
-            val todayDateCode = GET_TODAY_DATE_CODE(dayOfWeekCodes)[0]
+            val todayDateCode = getTodayDateCode(dayOfWeekCodes)[0]
 
             for (i in 0 until plansArray.length()) {
                 val planSettings = JSONObject(plansArray[i].toString())

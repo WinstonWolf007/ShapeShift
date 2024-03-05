@@ -16,5 +16,6 @@
     <string name="edit_workout_day">Edit workout day</string>
     <string name="dark">dark</string>
     <string name="english">English</string>
+    <string name="edit">EDIT</string>
     <!--    <string name="workout_exit_text">UPPER BODY</string>-->
 </resources>
