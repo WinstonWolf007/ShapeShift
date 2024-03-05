@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
-    tools:context=".MainActivity2">
+    tools:context=".AvailableWorkoutActivity">
 
 
     <RelativeLayout
@@ -136,42 +136,36 @@
     <TextView
         style="@style/plan_layout_title"
         android:id="@+id/plan_title0"
-        android:text="LEGS PUSH"
         app:layout_constraintBottom_toBottomOf="@+id/plan_frame_layout"
         app:layout_constraintStart_toStartOf="@+id/plan_frame_layout" />
 
     <TextView
         style="@style/plan_layout_title"
         android:id="@+id/plan_title1"
-        android:text="ABS KILLER"
         app:layout_constraintBottom_toBottomOf="@+id/plan_frame_layout2"
         app:layout_constraintStart_toStartOf="@+id/plan_frame_layout2" />
 
     <TextView
         style="@style/plan_layout_title"
         android:id="@+id/plan_title2"
-        android:text="ARM PULL"
         app:layout_constraintBottom_toBottomOf="@+id/plan_frame_layout3"
         app:layout_constraintStart_toStartOf="@+id/plan_frame_layout3" />
 
     <TextView
         style="@style/plan_layout_title"
         android:id="@+id/plan_title3"
-        android:text="POWER LIFT"
         app:layout_constraintBottom_toBottomOf="@+id/plan_frame_layout4"
         app:layout_constraintStart_toStartOf="@+id/plan_frame_layout4" />
 
     <TextView
         style="@style/plan_layout_title"
         android:id="@+id/plan_title4"
-        android:text="PECS PUSH"
         app:layout_constraintBottom_toBottomOf="@+id/plan_frame_layout5"
         app:layout_constraintStart_toStartOf="@+id/plan_frame_layout5" />
 
     <TextView
         style="@style/plan_layout_title"
         android:id="@+id/plan_title5"
-        android:text="BACK PULL"
         app:layout_constraintBottom_toBottomOf="@+id/plan_frame_layout6"
         app:layout_constraintStart_toStartOf="@+id/plan_frame_layout6" />
 
@@ -179,9 +173,9 @@
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
+        android:layout_marginStart="10dp"
         android:fontFamily="@font/jb_bold"
-        android:text="EDIT"
+        android:text="@string/edit"
         android:textColor="@color/orange"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="@+id/close_button"

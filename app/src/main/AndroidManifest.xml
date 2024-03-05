@@ -34,7 +34,7 @@
             android:theme="@style/AppTheme"
             android:exported="true" />
         <activity
-            android:name=".MainActivity2"
+            android:name=".AvailableWorkoutActivity"
             android:theme="@style/AppTheme"
             android:exported="true" />
         <activity

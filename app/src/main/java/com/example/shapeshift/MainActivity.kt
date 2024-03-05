@@ -139,7 +139,7 @@ class MainActivity : AppCompatActivity() {
         val textView = findViewById<TextView>(R.id.more_plan_btn)
 
         textView.setOnClickListener {
-            val intent = Intent(this, MainActivity2::class.java)
+            val intent = Intent(this, AvailableWorkoutActivity::class.java)
             intent.putExtra("src", this::class.java.name)
             startActivity(intent)
         }
