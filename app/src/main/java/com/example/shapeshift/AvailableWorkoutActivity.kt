@@ -9,6 +9,8 @@ import android.widget.RelativeLayout
 import android.widget.TextView
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
+import com.example.shapeshift.databases.DatabaseManager
+import com.example.shapeshift.databases.Setting
 import org.json.JSONArray
 import org.json.JSONObject
 
@@ -16,17 +18,29 @@ class AvailableWorkoutActivity : AppCompatActivity() {
 
     private lateinit var weeklyPlanList: MutableList<JSONObject>
     private val dayOfWeekCodes = listOf<String>("Su", "Mo", "Tu", "We", "Th", "Fr", "Sa")
+    private lateinit var settings: JSONObject
 
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_available_workout)
 
+        loadSettingObject()
+
+        // load activity
         loadWeekPlan()
         addWorkoutLayout()
 
         // Set up event listener
         setMainActivityButtonListener()
+    }
+
+    private fun loadSettingObject() {
+        val dbManager = DatabaseManager(this)
+        val setting: Setting? = dbManager.getSpecificSetting("json")
+        if (setting != null) {
+            settings = JSONObject(setting.value)
+        }
     }
 
     private fun addWorkoutLayout() {
@@ -86,23 +100,19 @@ class AvailableWorkoutActivity : AppCompatActivity() {
 
     @RequiresApi(Build.VERSION_CODES.O)
     private fun loadWeekPlan() {
-        val jsonObject: JSONObject? = GET_JSON_FILE_OBJECT_INTERN_STORAGE(application, "default-settings.json")
+        val plans = settings.getString("plans")
+        val plansArray = JSONArray(plans)
+        val planList = mutableListOf<JSONObject>()
 
-        if (jsonObject != null) {
-            val plans = jsonObject.getString("plans")
-            val plansArray = JSONArray(plans)
-            val planList = mutableListOf<JSONObject>()
+        val todayDateCode = getTodayDateCode(dayOfWeekCodes)[0]
 
-            val todayDateCode = getTodayDateCode(dayOfWeekCodes)[0]
-
-            for (i in 0 until plansArray.length()) {
-                val planSettings = JSONObject(plansArray[i].toString())
-                if (planSettings.getString("time") != todayDateCode) {
-                    planList.add(planSettings)
-                }
+        for (i in 0 until plansArray.length()) {
+            val planSettings = JSONObject(plansArray[i].toString())
+            if (planSettings.getString("time") != todayDateCode) {
+                planList.add(planSettings)
             }
-
-            weeklyPlanList = planList
         }
+
+        weeklyPlanList = planList
     }
 }

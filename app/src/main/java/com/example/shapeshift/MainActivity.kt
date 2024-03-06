@@ -11,6 +11,7 @@ import android.widget.RelativeLayout
 import android.widget.TextView
 import androidx.annotation.RequiresApi
 import androidx.core.content.ContextCompat
+import com.example.shapeshift.databases.DatabaseManager
 import org.json.JSONArray
 import org.json.JSONObject
 
@@ -20,13 +21,21 @@ class MainActivity : AppCompatActivity() {
     private val dateCode = listOf<String>("Su", "Mo", "Tu", "We", "Th", "Fr", "Sa")
     private lateinit var today_plan_settings: JSONObject
 
+    // Main database for every activities
+    private val dbManager = DatabaseManager(this)
+
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        // When app restart, copy default settings
-        COPY_JSON_FILE_OBJECT(this, "default-settings.json")
+//        dbManager.clearEveryData()
+//
+//        dbManager.insertSetting(
+//            Setting(1, "json",
+//                GET_JSON_FILE_OBJECT(this, "default-settings.json").toString()
+//            )
+//        )
 
         // Section in main activity
         this.ADD_WELCOME_TITLE()
@@ -39,16 +48,6 @@ class MainActivity : AppCompatActivity() {
         this.CHANGE_TO_PLAN_ACTIVITY()
         this.CHANGE_TO_WORKOUT_ACTIVITY()
         this.CHANGE_TO_EDIT_ACTIVITY()
-    }
-
-    private fun CHANGE_TO_EDIT_ACTIVITY() {
-        val textView = findViewById<TextView>(R.id.edit_text)
-
-        textView.setOnClickListener {
-            val intent = Intent(this, SettingsActivity::class.java)
-            intent.putExtra("src", this::class.java.name)
-            startActivity(intent)
-        }
     }
 
     private fun ADD_TODAY_PLAN_TEXT_VIEW() {
@@ -121,17 +120,25 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun ADD_WELCOME_TITLE() {
-        val jsonObject: JSONObject? =
-            GET_JSON_FILE_OBJECT_INTERN_STORAGE(application, "default-settings.json")
+        val jsonObject: JSONObject =
+            GET_JSON_FILE_OBJECT(application, "default-settings.json")
 
-        if (jsonObject != null) {
-            val textView = findViewById<TextView>(R.id.home_welcome_title)
-            var username: String = jsonObject.getString("username").uppercase()
+        val textView = findViewById<TextView>(R.id.home_welcome_title)
+        var username: String = jsonObject.getString("username").uppercase()
 
-            if (username.length > 10)
-                username = username.substring(0, 10)
-            val title ="WELCOME $username"
-            textView.text = title
+        if (username.length > 10)
+            username = username.substring(0, 10)
+        val title ="WELCOME $username"
+        textView.text = title
+    }
+
+    private fun CHANGE_TO_EDIT_ACTIVITY() {
+        val textView = findViewById<TextView>(R.id.edit_text)
+
+        textView.setOnClickListener {
+            val intent = Intent(this, SettingsActivity::class.java)
+            intent.putExtra("src", this::class.java.name)
+            startActivity(intent)
         }
     }
 
@@ -187,18 +194,16 @@ class MainActivity : AppCompatActivity() {
 
     @RequiresApi(Build.VERSION_CODES.O)
     private fun ADD_TODAY_PLAN() {
-        val planObject: JSONObject? = GET_JSON_FILE_OBJECT_INTERN_STORAGE(application, "default-settings.json")
-        if (planObject != null) {
-            val listOfPlans: JSONArray = planObject.getJSONArray("plans")
+        val planObject: JSONObject = GET_JSON_FILE_OBJECT(application, "default-settings.json")
+        val listOfPlans: JSONArray = planObject.getJSONArray("plans")
 
-            today_plan_settings = JSONObject("{}")
+        today_plan_settings = JSONObject("{}")
 
-            for (i in 0 until listOfPlans.length()) {
-                val planSettings = JSONObject(listOfPlans[i].toString())
-                if (planSettings.getString("time") == getTodayDateCode(dateCode)[0]) {
-                    today_plan_settings = planSettings
-                    break
-                }
+        for (i in 0 until listOfPlans.length()) {
+            val planSettings = JSONObject(listOfPlans[i].toString())
+            if (planSettings.getString("time") == getTodayDateCode(dateCode)[0]) {
+                today_plan_settings = planSettings
+                break
             }
         }
     }
