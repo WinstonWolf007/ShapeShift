@@ -5,6 +5,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:id="@+id/page"
     android:background="@color/white"
     tools:context=".MainActivity">
 
@@ -30,7 +31,8 @@
         app:layout_constraintTop_toTopOf="parent">
         <TextView
             android:id="@+id/home_welcome_title"
-            style="@style/home_title" />
+            style="@style/home_title"
+            android:textColor="@color/black"/>
     </RelativeLayout>
 
     <!--  WEEK EDIT SUBTITLES  -->
@@ -43,7 +45,9 @@
         app:layout_constraintTop_toBottomOf="@id/home_section_title">
 
         <TextView
+            android:textColor="@color/black"
             style="@style/home_subtitle"
+            android:id="@+id/week_title"
             android:text="@string/home_subtitle_week" />
 
         <TextView
@@ -73,6 +77,7 @@
         app:layout_constraintTop_toBottomOf="@id/week_grid">
 
         <TextView
+            android:id="@+id/today_plan_subtitle"
             style="@style/home_subtitle"
             android:text="@string/home_subtitle_plan_today" />
     </RelativeLayout>
@@ -132,6 +137,7 @@
     <!--  SEE MORE PLAN BTN   -->
     <TextView
         style="@style/home_see_more_button"
+        android:textColor="@color/orange"
         android:id="@+id/more_plan_btn"
         android:text="@string/home_see_more_plan"
         app:layout_constraintBottom_toBottomOf="parent"

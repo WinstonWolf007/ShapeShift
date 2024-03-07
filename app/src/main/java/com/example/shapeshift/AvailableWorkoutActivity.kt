@@ -9,6 +9,7 @@ import android.widget.RelativeLayout
 import android.widget.TextView
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
+import androidx.constraintlayout.widget.ConstraintLayout
 import com.example.shapeshift.databases.DatabaseManager
 import com.example.shapeshift.databases.Setting
 import org.json.JSONArray
@@ -19,6 +20,7 @@ class AvailableWorkoutActivity : AppCompatActivity() {
     private lateinit var weeklyPlanList: MutableList<JSONObject>
     private val dayOfWeekCodes = listOf<String>("Su", "Mo", "Tu", "We", "Th", "Fr", "Sa")
     private lateinit var settings: JSONObject
+    private val availableThemes: List<String> = listOf("dark", "light", "default")
 
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -27,12 +29,51 @@ class AvailableWorkoutActivity : AppCompatActivity() {
 
         loadSettingObject()
 
+
         // load activity
         loadWeekPlan()
         addWorkoutLayout()
 
+        SET_THEME_TO_ACTIVITY()
+
         // Set up event listener
         setMainActivityButtonListener()
+    }
+
+    private fun SET_THEME_TO_ACTIVITY() {
+        val defaultTheme: String = settings.getString("theme")
+
+        val page = findViewById<ConstraintLayout>(R.id.page)
+        val topMenu = findViewById<RelativeLayout>(R.id.close_button)
+
+        val planLayouts = listOf<FrameLayout>(
+            findViewById(R.id.plan_frame_layout),
+            findViewById(R.id.plan_frame_layout2),
+            findViewById(R.id.plan_frame_layout3),
+            findViewById(R.id.plan_frame_layout4),
+            findViewById(R.id.plan_frame_layout5),
+            findViewById(R.id.plan_frame_layout6)
+        )
+
+        val textLayouts = listOf<TextView>(
+            findViewById(R.id.plan_title0),
+            findViewById(R.id.plan_title1),
+            findViewById(R.id.plan_title2),
+            findViewById(R.id.plan_title3),
+            findViewById(R.id.plan_title4),
+            findViewById(R.id.plan_title5),
+        )
+
+        if (availableThemes[0] == defaultTheme) {
+            page.setBackgroundColor(resources.getColor(R.color.dark_gray))
+            for (element in planLayouts) {
+                element.setBackgroundResource(R.drawable.home_plan_component_white)
+            }
+            for (text in textLayouts) {
+                text.setTextColor(getColor(R.color.white))
+            }
+            topMenu.setBackgroundColor(getColor(R.color.light_gray))
+        }
     }
 
     private fun loadSettingObject() {

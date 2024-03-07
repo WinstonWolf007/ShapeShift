@@ -10,6 +10,9 @@ import android.view.ViewGroup
 import android.widget.FrameLayout
 import android.widget.RelativeLayout
 import android.widget.TextView
+import androidx.constraintlayout.widget.ConstraintLayout
+import com.example.shapeshift.databases.DatabaseManager
+import com.example.shapeshift.databases.Setting
 import org.json.JSONObject
 
 class WorkoutActivity : AppCompatActivity() {
@@ -18,16 +21,52 @@ class WorkoutActivity : AppCompatActivity() {
     lateinit var workout_struct: MutableList<JSONObject>
     private var isPaused: Boolean = false
 
+    private lateinit var settings: JSONObject
+
     // STOP WATCH VALUE
     lateinit var stopwatchTextView: TextView
     private var secondsElapsed: Int = 0
     private var isRunning: Boolean = false
     private val handler = Handler()
 
+    private val availableThemes: List<String> = listOf("dark", "light", "default")
+
+
     // WORKOUT CURSOR
     var workout_cursor: Int = 0
 
     val workout_squares = mutableListOf<FrameLayout>()
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_workout)
+
+        this.load_settings()
+
+        stopwatchTextView = findViewById(R.id.workout_stopwatch)
+
+        this.INIT_EXTRA_VALUE()
+        this.ADD_TITLE()
+        this.SETUP_WORKOUT_STRUCT()
+
+        this.SET_THEME_TO_ACTIVITY()
+
+        // EVENT
+        this.SET_EXIT_EVENT()
+        this.SET_PAUSE_EVENT()
+        this.START_WORKOUT_IDX()
+        this.startStopwatch()
+
+        this.SET_WORKOUT_CURSOR_EVENT()
+    }
+
+    private fun load_settings() {
+        val dbManager = DatabaseManager(this)
+        val setting: Setting? = dbManager.getSpecificSetting("json")
+        if (setting != null) {
+            settings = JSONObject(setting.value)
+        }
+    }
 
     // STOP WATCH LOOP
     private val runnable = object : Runnable {
@@ -52,30 +91,26 @@ class WorkoutActivity : AppCompatActivity() {
         }
     }
 
+    private fun SET_THEME_TO_ACTIVITY() {
+        val page = findViewById<ConstraintLayout>(R.id.page)
+        val title = findViewById<TextView>(R.id.workout_exo_name)
+
+        if (availableThemes[1] == settings.getString("theme")) {
+            page.setBackgroundColor(getColor(R.color.white))
+            title.setTextColor(getColor(R.color.light_gray))
+
+            for (square in workout_squares) {
+                square.setBackgroundColor(getColor(R.color.light))
+            }
+        }
+
+    }
+
     private fun vibrate(time:Long=50) {
         val vibrator = getSystemService(Context.VIBRATOR_SERVICE) as Vibrator
         if (vibrator.hasVibrator()) {
             vibrator.vibrate(time)
         }
-    }
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_workout)
-
-        stopwatchTextView = findViewById(R.id.workout_stopwatch)
-
-        this.INIT_EXTRA_VALUE()
-        this.ADD_TITLE()
-        this.SETUP_WORKOUT_STRUCT()
-
-        // EVENT
-        this.SET_EXIT_EVENT()
-        this.SET_PAUSE_EVENT()
-        this.START_WORKOUT_IDX()
-        this.startStopwatch()
-
-        this.SET_WORKOUT_CURSOR_EVENT()
     }
 
     override fun onDestroy() {
@@ -110,7 +145,11 @@ class WorkoutActivity : AppCompatActivity() {
             if (square_cursor == sq) {
                 squareFrame.setBackgroundColor(getColor(R.color.orange))
             } else {
-                squareFrame.setBackgroundColor(getColor(R.color.light_gray))
+                if (availableThemes[1] == settings.getString("theme")) {
+                    squareFrame.setBackgroundColor(getColor(R.color.light))
+                } else {
+                    squareFrame.setBackgroundColor(getColor(R.color.light_gray))
+                }
             }
         }
     }

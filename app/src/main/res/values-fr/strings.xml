@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="home_subtitle_week">CETTE SEMAINE</string>
+    <string name="home_subtitle_plan_today">LE PLAN D\'AUJOURD\'HUI</string>
+    <string name="home_edit">PARAMÈTRES</string>
+    <string name="home_see_more_plan">VOIR PLUS DE PLANS</string>
+    <string name="title_activity_test">TestActivity</string>
+    <string name="title_activity_main2">MainActivity2</string>
+    <string name="app_name">SHAPE SHIFT</string>
+    <string name="workout_exit_text"><![CDATA[<— Quitter —>]]></string>
+    <string name="language">LANGAGE</string>
+    <string name="workout">ENTRAÎNEMENT</string>
+    <string name="exit">QUITTER</string>
+    <string name="theme">THÈME</string>
+    <string name="edit_workout_day">Éditer les jours d\'entraînement</string>
+    <string name="dark">sombre</string>
+    <string name="english">Anglais</string>
+    <string name="edit">ÉDITER</string>
+    <string name="home_welcome">BIENVENUE</string>
+    <string name="light">lumière</string>
+    <string name="defaultTheme">par défaut</string>
+    <string name="dayOff">Jour de congé  ʕ•́ᴥ•̀ʔっ</string>
+    <string name="week_su">Di</string>
+    <string name="week_mo">Lu</string>
+    <string name="week_tu">Ma</string>
+    <string name="week_we">Me</string>
+    <string name="week_th">Je</string>
+    <string name="week_fr">Ve</string>
+    <string name="week_sa">Sa</string>
+</resources>

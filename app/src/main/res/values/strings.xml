@@ -1,5 +1,4 @@
 <resources>
-    <string name="home_welcome">WELCOME</string>
     <string name="home_subtitle_week">THIS WEEK</string>
     <string name="home_subtitle_plan_today">TODAY PLAN</string>
     <string name="home_edit">SETTINGS</string>
@@ -17,5 +16,15 @@
     <string name="dark">dark</string>
     <string name="english">English</string>
     <string name="edit">EDIT</string>
-    <!--    <string name="workout_exit_text">UPPER BODY</string>-->
+    <string name="home_welcome">WELCOME</string>
+    <string name="light">light</string>
+    <string name="defaultTheme">default</string>
+    <string name="dayOff">Day off... ʕ•́ᴥ•̀ʔっ</string>
+    <string name="week_su">Su</string>
+    <string name="week_mo">Mo</string>
+    <string name="week_tu">Tu</string>
+    <string name="week_we">We</string>
+    <string name="week_th">Th</string>
+    <string name="week_fr">Fr</string>
+    <string name="week_sa">Sa</string>
 </resources>
